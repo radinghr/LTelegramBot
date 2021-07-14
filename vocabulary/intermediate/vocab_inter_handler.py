@@ -12,7 +12,7 @@ class VocabIntermediateMainMenu(BaseMenu):
     def menu_keyboards() -> (list, None):
         keyboard = []
         for i in range(lessons_count):
-            keyboard.append([InlineKeyboardButton(f'Lesson {i}', callback_data=f'inter_{i}')])
+            keyboard.append([InlineKeyboardButton(f'Lesson {i+1}', callback_data=f'inter_{i+1}')])
 
         return keyboard
 
