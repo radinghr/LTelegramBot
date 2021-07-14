@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  learning_english_telegram_bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: learning_english_telegram_bot
+    restart: unless-stopped
+    ports:
+      - 6800:6800
+    environment:
+      - BOT_TOKEN=
