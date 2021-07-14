@@ -144,3 +144,5 @@ dbs/
 .idea/
 */.idea/*
 
+token.ini
+
