@@ -2,6 +2,7 @@ from telegram import InlineKeyboardButton
 from telegram.ext import CallbackQueryHandler
 from core.base_menu import BaseMenu
 from .lesson_handler import add_lessons_handler
+from .lessons import lessons_count
 
 
 class VocabIntermediateMainMenu(BaseMenu):
@@ -9,9 +10,10 @@ class VocabIntermediateMainMenu(BaseMenu):
 
     @staticmethod
     def menu_keyboards() -> (list, None):
-        keyboard = [
-            [InlineKeyboardButton('Lesson 1', callback_data='inter_1')],
-        ]
+        keyboard = []
+        for i in range(lessons_count):
+            keyboard.append([InlineKeyboardButton(f'Lesson {i}', callback_data=f'inter_{i}')])
+
         return keyboard
 
     @staticmethod
