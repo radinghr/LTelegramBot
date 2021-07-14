@@ -1,5 +1,5 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
-from bot_commands import start, main_menu, vocabulary_menu, inter_vocabulary_menu
+from telegram.ext import Updater
+from .main_handler import main_menu
 import os
 
 
@@ -15,11 +15,7 @@ def main():
     dp = updater.dispatcher
 
     # on different commands - answer in Telegram
-    dp.add_handler(CommandHandler("start", start))
-
-    updater.dispatcher.add_handler(CallbackQueryHandler(main_menu, pattern='main'))
-    updater.dispatcher.add_handler(CallbackQueryHandler(vocabulary_menu, pattern='vocabulary'))
-    updater.dispatcher.add_handler(CallbackQueryHandler(inter_vocabulary_menu, pattern='Intermediate'))
+    main_menu.add_handler(updater, dp=dp)
 
     # Start the Bot
     updater.start_polling()
