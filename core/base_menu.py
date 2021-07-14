@@ -1,3 +1,6 @@
+from telegram import InlineKeyboardMarkup
+
+
 class BaseMenu:
     menu_pattern = None
 
@@ -44,7 +47,7 @@ class BaseMenu:
             back_button = self.back_button()
             if back_button is not None:
                 keyboard.insert(0, back_button)
-            return keyboard
+            return InlineKeyboardMarkup(keyboard)
         else:
             return None
 
