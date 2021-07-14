@@ -9,13 +9,13 @@ class MainMenu(BaseMenu):
 
     @staticmethod
     def menu_message() -> str:
-        return 'This bot will help you to improve your english vocabulary.\r\n What skill do you want to improve? ' \
-               'Choose from options:\r\nDeveloped by @raadingh'
+        return 'This bot will help you to improve your English.\r\n What skill do you want to improve? ' \
+               '\r\nDeveloped by @raadingh'
 
     @staticmethod
     def menu_keyboards() -> (list, None):
         keyboard = [
-            [InlineKeyboardButton('vocabulary', callback_data=vocab_main_menu.menu_pattern)],
+            [InlineKeyboardButton('Vocabulary', callback_data=vocab_main_menu.menu_pattern)],
         ]
         return keyboard
 
@@ -26,14 +26,14 @@ class MainMenu(BaseMenu):
             text=self.menu_message(),
             reply_markup=self.menu_options())
 
-    def add_handler(self, updater, dp=None):
+    def add_handler(self, update, dp=None):
         dp.add_handler(CommandHandler("start", self.start_menu))
-        updater.dispatcher.add_handler(CallbackQueryHandler(self.menu_gui, pattern=self.menu_pattern))
-        vocab_main_menu.add_handler(updater)
+        update.dispatcher.add_handler(CallbackQueryHandler(self.menu_gui, pattern=self.menu_pattern))
+        vocab_main_menu.add_handler(update, prev_menu=self.menu_pattern)
 
     def start_menu(self, update, context):
-        update.message.reply_text(self.menu_message(),
-                                  reply_markup=self.menu_options())
+        update.message.reply_text(self.menu_message())
+        update.message.reply_text('Choose from options:', reply_markup=self.menu_options())
 
 
 main_menu = MainMenu()

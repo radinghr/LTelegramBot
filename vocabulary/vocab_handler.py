@@ -25,8 +25,10 @@ class VocabMainMenu(BaseMenu):
             text=self.menu_message(),
             reply_markup=self.menu_options())
 
-    def add_handler(self, updater):
-        updater.dispatcher.add_handler(CallbackQueryHandler(self.menu_gui, pattern=self.menu_pattern))
+    def add_handler(self, update, prev_menu=None):
+        self.prev_menu = prev_menu
+        update.dispatcher.add_handler(CallbackQueryHandler(self.menu_gui, pattern=self.menu_pattern))
+        vocab_inter_menu.add_handler(update, prev_menu=self.menu_pattern)
 
 
 vocab_main_menu = VocabMainMenu()

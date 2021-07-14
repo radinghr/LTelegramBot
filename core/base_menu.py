@@ -1,8 +1,9 @@
-from telegram import InlineKeyboardMarkup
+from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 class BaseMenu:
     menu_pattern = None
+    prev_menu = None
 
     @staticmethod
     def menu_keyboards() -> (list, None):
@@ -25,7 +26,10 @@ class BaseMenu:
         Return menu's back button or None
         :return:
         """
-        return None
+        if self.prev_menu is None:
+            return None
+        back_menu = [InlineKeyboardButton('◀️ Back️', callback_data=self.prev_menu)]
+        return back_menu
 
     def next_button(self) -> (list, None):
         """
@@ -54,5 +58,5 @@ class BaseMenu:
     def menu_gui(self, update, context):
         pass
 
-    def add_handler(self, updater):
+    def add_handler(self, updater, **kwargs):
         pass
