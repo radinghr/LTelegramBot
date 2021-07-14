@@ -1,6 +1,18 @@
 from telegram.ext import Updater
 from .main_handler import main_menu
+import logging
 import os
+
+# Enable logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
+
+logger = logging.getLogger(__name__)
+
+
+def error(update, context):
+    """Log Errors caused by Updates."""
+    logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 
 def main():
@@ -16,6 +28,8 @@ def main():
 
     # on different commands - answer in Telegram
     main_menu.add_handler(updater, dp=dp)
+
+    dp.add_error_handler(error)
 
     # Start the Bot
     updater.start_polling()
