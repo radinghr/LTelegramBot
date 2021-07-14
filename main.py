@@ -1,5 +1,5 @@
 from telegram.ext import Updater
-from .main_handler import main_menu
+from main_handler import main_menu
 import logging
 import os
 

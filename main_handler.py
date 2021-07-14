@@ -1,6 +1,6 @@
 from telegram import InlineKeyboardButton
 from telegram.ext import CommandHandler, CallbackQueryHandler
-from .vocabulary.vocab_handler import vocab_main_menu
+from vocabulary.vocab_handler import vocab_main_menu
 from core.base_menu import BaseMenu
 
 
