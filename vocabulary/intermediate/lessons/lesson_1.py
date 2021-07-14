@@ -14,8 +14,7 @@ class Lesson1(BaseLesson):
         "identify": "recognize and decide what sth is",
         "context": "the words before and after a new word/phrase that help you to understand the meaning",
         "keep record of sth": "write sth down to help you remember it",
-        "formal": "we use formal language to appear serious or official, or in some situations where we don't know people \
-        well\. OPP informal",
+        "formal": "we use formal language to appear serious or official, or in some situations where we don't know people well\. OPP informal",
         "translation": "text has been changed from one language into another\. translate V\.",
         "repeat": "say sth again\. repetition N\.",
         "explain": "tell sb sth in a way that makes it clear or easy to understand\. explanation N\.",

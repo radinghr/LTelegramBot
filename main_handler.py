@@ -28,12 +28,16 @@ class MainMenu(BaseMenu):
 
     def add_handler(self, update, dp=None):
         dp.add_handler(CommandHandler("start", self.start_menu))
+        dp.add_handler(CommandHandler("menu", self.main_menu))
         update.dispatcher.add_handler(CallbackQueryHandler(self.menu_gui, pattern=self.menu_pattern))
-        vocab_main_menu.add_handler(update, prev_menu=self.menu_pattern)
+        vocab_main_menu.add_handler(update, dp=dp, prev_menu=self.menu_pattern)
 
     def start_menu(self, update, context):
         update.message.reply_text(self.menu_message())
-        update.message.reply_text('Choose from options:', reply_markup=self.menu_options())
+        update.message.reply_text('Please select one of the following skills', reply_markup=self.menu_options())
+
+    def main_menu(self, update, context):
+        update.message.reply_text('Please select one of the following skills', reply_markup=self.menu_options())
 
 
 main_menu = MainMenu()

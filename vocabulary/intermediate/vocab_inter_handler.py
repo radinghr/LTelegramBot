@@ -18,7 +18,7 @@ class VocabIntermediateMainMenu(BaseMenu):
 
     @staticmethod
     def menu_message():
-        return 'Choose your lesson:'
+        return 'Which lesson do you want to read?'
 
     def menu_gui(self, update, context):
         query = update.callback_query

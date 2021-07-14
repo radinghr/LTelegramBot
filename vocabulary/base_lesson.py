@@ -31,7 +31,6 @@ class BaseLesson(BaseMenu):
         Return menu's back button or None
         :return:
         """
-        print(self.lesson_num, self.maximum_lesson)
         if self.lesson_num >= self.maximum_lesson:
             return None
         next_data = self.lesson_level + "_" + str(self.lesson_num + 1)
