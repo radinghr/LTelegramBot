@@ -1,8 +1,8 @@
 from vocabulary.base_lesson import BaseLesson
-from ..lessons import lessons_count
+from vocabulary.intermediate.lessons import lessons_count
 
 
-class Lesson3(BaseLesson):
+class VocabInterLesson3(BaseLesson):
     lesson_level = 'inter'
     maximum_lesson = lessons_count
     lesson_num = 3
@@ -22,4 +22,4 @@ class Lesson3(BaseLesson):
     }
 
 
-lesson_3 = Lesson3()
+vocab_inter_lesson_3 = VocabInterLesson3()
