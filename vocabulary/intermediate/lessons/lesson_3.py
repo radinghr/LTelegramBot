@@ -11,7 +11,7 @@ class VocabInterLesson3(BaseLesson):
         "provide": "give sth to sb or make sth available for sb",
         "avoid doing sth": "if you avoid doing sth, you try not to do it",
         "idiom": "a group of words with a special meaning",
-        "entry": "one item that is written in a dictionary, list etc\.",
+        "entry": "one item that is written in a dictionary, list etc.",
         "symbol": "a letter, number or sign that has a particular meaning",
         "syllable": "a part of word which contains vowel sound",
         "related (do sth)": "connected to sth",

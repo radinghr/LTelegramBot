@@ -11,8 +11,8 @@ class BaseLesson(BaseMenu):
     vocabs = {}
 
     def menu_message(self):
-        title = f'Lesson {self.lesson_num}:'
-        words = ''.join('\r\n*{}*:{}'.format(key.capitalize(), val.capitalize()) for key, val in self.vocabs.items())
+        title = f'*Lesson {self.lesson_num}:*'
+        words = ''.join('\r\n*{}*:{}'.format(key, val) for key, val in self.vocabs.items())
         return title + words
 
     def back_button(self) -> (list, None):
@@ -49,7 +49,7 @@ class BaseLesson(BaseMenu):
         query = update.callback_query
         query.answer()
         query.edit_message_text(
-            text=self.menu_message(),
+            text=self.reformat_texts(self.menu_message()),
             reply_markup=self.menu_options(),
             parse_mode='MarkdownV2')
 

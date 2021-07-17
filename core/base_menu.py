@@ -4,6 +4,18 @@ from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 class BaseMenu:
     menu_pattern = None
     prev_menu = None
+    escape_chars = ['-', '.', '(', ')']
+
+    def reformat_texts(self, text: str) -> str:
+        """
+        Reformat texts and replace escape chars
+        :param text:
+        :return:
+        """
+        text = text.capitalize()
+        for esc_char in self.escape_chars:
+            text = text.replace(esc_char, "\\" + esc_char)
+        return text
 
     @staticmethod
     def menu_keyboards() -> (list, None):

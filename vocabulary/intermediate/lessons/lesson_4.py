@@ -7,7 +7,7 @@ class VocabInterLesson4(BaseLesson):
     maximum_lesson = lessons_count
     lesson_num = 4
     vocabs = {
-        "abbreviation": "a short form of a word\. tv is and abbreviation of televison",
+        "abbreviation": "a short form of a word. tv is and abbreviation of televison",
         "capital letters": "A B C are capital letters",
         "pause": "a short period of time when sb stops talking",
         "separate": "keep people or thing away from each other",
